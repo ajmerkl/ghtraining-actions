@@ -2,7 +2,7 @@
 FROM alpine:3.10
 
 # Copy any source file(s) required for the action
-COPY entrypoint.sh .
+COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x entrypoint.sh
 
