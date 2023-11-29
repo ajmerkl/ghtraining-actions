@@ -1,0 +1,23 @@
+name: Hello World Docker
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greet-by-docker:
+    name: Greet By Docker
+    runs-on: ubutunu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+        
+      - name: Run Docker Container
+        id: greetings
+        uses: ./hello-world-docker-action
+        with: 
+          who-to-greet: '@ajmerkl'
+          
+      - name: Print greeting time
+        id: printtime
+        run: echo ${{steps.greetings.outputs.time}}
